@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Plus+Jakarta+Sans&family=Space+Grotesk&family=Space+Mono&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  font-feature-settings: "clig" off, "liga" off;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.custom_shadow {
+  border-radius: 0.9375rem;
+  background: var(--9---White, #fff);
+  box-shadow: 0px 20px 60px 0px rgba(73, 97, 168, 0.05);
+}
+
+button {
+  border: 1px solid transparent;
+  padding: 0.4em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
