@@ -1,4 +1,5 @@
 import { notificationHeaderType } from "../Types/Types";
+//Component
 const NotificationHeader = ({ markAllAsRead }: notificationHeaderType) => {
   return (
     <div className="flex justify-between  items-center">
@@ -12,7 +13,7 @@ const NotificationHeader = ({ markAllAsRead }: notificationHeaderType) => {
         </button>
       </article>
       <p
-        className="text-[#5E6778] font-medium text-[0.8125rem] md:text-base"
+        className="text-[#0A327B] font-medium text-[0.8125rem] md:text-base"
         onClick={markAllAsRead}
       >
         Mark all as read
@@ -20,5 +21,5 @@ const NotificationHeader = ({ markAllAsRead }: notificationHeaderType) => {
     </div>
   );
 };
-
+//Export
 export default NotificationHeader;
