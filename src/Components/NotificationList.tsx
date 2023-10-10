@@ -37,7 +37,8 @@ const NotificationList = ({
         />
         <article>
           <p className="text-[#5E6778] text-[0.875rem] md:text-base  font-medium">
-            <strong className="text-[#1C202B]">{name}</strong> {comment}
+            <strong className="text-[#1C202B] font-extrabold">{name}</strong>{" "}
+            {comment}
             <span>{!isOpen ? <Unread /> : ""}</span>
           </p>
           <p className="text-[0.8125rem] md:text-base text-[#939CAD]">{time}</p>
