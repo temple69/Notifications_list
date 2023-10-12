@@ -1,7 +1,8 @@
-import { useState } from "react";
-import Oval from "../assets/OvalMark.jpg";
-import Unread from "./Icons/Unread";
-import { NotificationListType } from "../Types/Types";
+import Oval from "../assets/OvalMark.jpg"; //Image
+import Unread from "./Icons/Unread"; //Icon
+import { NotificationListType } from "../Types/Types"; //Types
+import { useContext } from "react"; //React
+import { NotificationsContext } from "../context/NotificationContext"; //Context
 //Component
 const NotificationList = ({
   id,
@@ -12,21 +13,16 @@ const NotificationList = ({
   isRead,
   isOpened,
 }: NotificationListType) => {
-  //State which will be used to change the state of notification
-  const [isUnRead, setisUnread] = useState(isRead);
-  //State which manages the state of notification
-  const [isOpen, setisOpened] = useState(isOpened);
-  //Functiom which will be called when user clicks on notification
-  const unReadHandler = () => {
-    setisUnread(!isUnRead);
-    setisOpened(true);
-  };
+  //Context call
+  const notificationsContext = useContext(NotificationsContext);
+  //Destructuring function from context
+  const { unReadHandler } = notificationsContext;
   return (
     <div
       key={id}
-      onClick={unReadHandler}
+      onClick={() => unReadHandler(id)}
       className={`${
-        !isOpen ? "rounded-lg bg-[#F7FAFD]" : "rounded-none bg-transparent"
+        !isOpened ? "rounded-lg bg-[#F7FAFD]" : "rounded-none bg-transparent"
       } px-4 py-3 my-3 cursor-pointer`}
     >
       <div className="flex gap-4 items-center">
@@ -39,13 +35,13 @@ const NotificationList = ({
           <p className="text-[#5E6778] text-[0.875rem] md:text-base  font-medium">
             <strong className="text-[#1C202B] font-extrabold">{name}</strong>{" "}
             {comment}
-            <span>{!isOpen ? <Unread /> : ""}</span>
+            <span>{!isOpened ? <Unread /> : ""}</span>
           </p>
           <p className="text-[0.8125rem] md:text-base text-[#939CAD]">{time}</p>
         </article>
       </div>
-      {isOpen ? (
-        isUnRead ? (
+      {isOpened ? (
+        isRead ? (
           ""
         ) : (
           <article className="rounded-[0.3125rem] bg-white md:bg-[#E5EFFA] border border-[#DDE7EE] ml-[7vw] md:ml-[6vw] lg:ml-[4vw] h-fit px-4  py-4 mt-4">
