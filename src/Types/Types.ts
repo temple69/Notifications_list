@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 // Type definitions for NotificationTypes
 export type NotificationType = {
   id: string;
@@ -13,4 +14,8 @@ export type NotificationListType = NotificationType;
 // Type definitions for NotificationHeaderTypes
 export type notificationHeaderType = {
   markAllAsRead: () => void;
+};
+// Type definitions for NotificationContextTypes
+export type NotificationContextType = {
+  children: ReactNode;
 };
