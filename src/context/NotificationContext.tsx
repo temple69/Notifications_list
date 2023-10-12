@@ -6,7 +6,9 @@ import { NotificationType } from "../Types/Types"; //Types
 export const NotificationsContext = createContext({
   notificationsData: [] as NotificationType[],
   markAllAsRead: () => {},
-  unReadHandler: (id: string) => {},
+  unReadHandler: (id: string) => {
+    console.log(id);
+  },
   unReadNotifications: 0,
 });
 //Create a context provider
