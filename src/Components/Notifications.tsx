@@ -1,20 +1,17 @@
 import NotificationHeader from "./NotificationHeader"; //Component
 import NotificationList from "./NotificationList"; //Component
-import { useState } from "react";
-import notificationsList from "../dataStore/store";
+//using custom hook
+import useNotificationContext from "../hooks/useNotificationContext";
+
 //Component
 const Notifications = () => {
-  const [notification, setNotification] = useState(notificationsList);
-  const markAllAsRead = () => {
-    const newNotification = notification.map((notification) => {
-      return { ...notification, isRead: true, isOpened: true };
-    });
-    setNotification(newNotification);
-  };
+  const notificationsContext = useNotificationContext();
+  const { notificationsData, markAllAsRead } = notificationsContext;
+
   return (
     <section className="mx-1 w-full md:mx-10 md:w-3/4  lg:w-2/4 custom_shadow px-4 py-6">
       <NotificationHeader markAllAsRead={markAllAsRead} />
-      {notification.map((notification) => (
+      {notificationsData.map((notification) => (
         <NotificationList
           key={notification.id}
           id={notification.id}
